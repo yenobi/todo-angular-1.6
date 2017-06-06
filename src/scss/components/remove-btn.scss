@@ -1,0 +1,24 @@
+.remove-btn {
+    vertical-align: top;
+    background-color: transparent;
+    border: none;
+    font-weight: 700;
+    position: relative;
+    color: lighten($black, 40%);
+    cursor: pointer;
+
+    &__icon {
+        position: absolute;
+        left: -20px;
+        fill: lighten($black, 40%);
+    }
+
+    &:hover,
+    &:focus {
+        color: $black;
+
+        .remove-btn__icon {
+            fill: $black;
+        }
+    }
+}

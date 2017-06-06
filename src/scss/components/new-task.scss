@@ -1,0 +1,33 @@
+.new-task {
+
+    &__container {
+        text-align: center;
+    }
+
+    &__input {
+        margin-top: 20px;
+        padding: 5px;
+        background-color: $light-gray;
+        border: none;
+        @include shadow;
+        outline-color: $blue;
+    }
+
+    &__btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        vertical-align: middle;
+        margin-left: 15px;
+        background-color: $light-blue;
+        cursor: pointer;
+        @include shadow;
+        color: $white;
+
+        &:hover,
+        &:focus {
+            background-color: darken($light-blue, 10%);
+        }
+    }
+}

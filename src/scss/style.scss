@@ -1,0 +1,51 @@
+// colors
+$black: #1F1F1F;
+$gray: #EEEEEE;
+$light-gray: #fafafa;
+$blue: #00BBD3;
+$light-blue: #92CBC5;
+$white: #fff;
+
+$turtoise: #80CBC4;
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14pt;
+    color: $black;
+    background-color: $gray;
+}
+
+// 16px
+
+@mixin paddings($padding: 16px) {
+    padding-left: $padding;
+    padding-right: $padding;
+}
+
+@mixin shadow {
+    box-shadow: 0px 5px 38px 0px rgba(0,0,0,0.3);
+}
+
+@mixin max-container {
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@import 'components/page-header.scss';
+
+@import 'components/main-app.scss';
+
+@import 'components/new-task.scss';
+
+@import 'components/task.scss';
+
+@import 'components/filters.scss';
+
+@import 'components/index-filter.scss';
+
+@import 'components/name-filter.scss';
+
+@import 'components/page-footer.scss';
+
+@import 'components/remove-btn.scss';

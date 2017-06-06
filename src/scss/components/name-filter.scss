@@ -1,0 +1,17 @@
+.name-filter {
+    &__btn {
+        vertical-align: top;
+        background-color: transparent;
+        border: none;
+        font-weight: 700;
+        position: relative;
+        color: lighten($black, 40%);
+        cursor: pointer;
+        outline-color: $blue;
+
+        &:hover,
+        &:focus {
+            color: $black;
+        }
+    }
+}

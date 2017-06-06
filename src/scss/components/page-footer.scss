@@ -1,0 +1,20 @@
+.page-footer {
+    @include paddings;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        padding: 5px 15px;
+        background-color: $light-gray;
+        @include shadow;
+    }
+}
+
+@media(min-width: 375px) {
+    .page-footer {
+        &__inner {
+            @include max-container;
+        }
+    }
+}

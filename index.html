@@ -3,46 +3,61 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=deivce-width, initial-scale=1">
+    <link rel="stylesheet" href="lib/normalize.css">
+    <link rel="stylesheet" href="build/css/style.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Simple todo-list with angular 1.5</title>
-    <!-- <script src="node_modules/angular/angular.min.js"></script>
-    <script src="app.js"></script>
-    <script src="ctrl.js"></script> -->
-    <!-- it's only for one class) -->
-    <style>
-      .done-true {
-        text-decoration: line-through;
-        color: grey;
-      }
-    </style>
   </head>
+
   <body ng-controller="listCtrl">
-    <h2>My first ToDo-list with Angular</h2>
+      <header class="page-header">
+          <h1 class="page-header__header">TODO application</h1>
+      </header>
 
-    <h3>Total:{{todoList.length}}</h3>
-    <ul ng-repeat="todos in todoList">
+      <main class="main-app">
+          <div class="filters">
+              <div class="index-filter__container">
+                  <button ng-click="indexFilter()" type="button" class="index-filter__btn">By index</button>
+              </div>
 
-      <li>
-        <input type="checkbox" ng-model="todos.done">
-        <!-- <span>{{todoList.indexOf(todos) + 1}}</span> -->
-        <span>{{todos.index}}</span>
-        <span class="done-{{todos.done}}">{{todos.text}}</span>
-      </li>
-    </ul>
+              <div class="name-filter__container">
+                  <button ng-click="nameFilter()" type="button" class="name-filter__btn">A to Z</button>
+              </div>
 
-    <form>
-      <input type="text" ng-model="todoText">
-      <button ng-click="addTodo()">add</button>
-    </form>
-    <button ng-click="removeCompleted()" type="button">remove Completed</button>
+        </div>
 
-    <div>
-        <button ng-click="newToLate()" type="button">newest to latest</button>
-        <button ng-click="lateToNew()" type="button"> latest to newest</button>
-    </div>
+          <ul class="task__list">
 
-    <div>
-        <button ng-click="aToZ()" type="button">A to Z</button>
-        <button ng-click="zToA()" type="button">Z to A</button>
+              <li class="task" ng-repeat="todos in todoList">
+                  <label>
+                      <input type="checkbox" ng-model="todos.done" class="task__checkbox">
+                      <span class="task__custom-checkbox"></span>
+                      <span class="task__index">{{todos.index}}</span>
+                      <span class="done-{{todos.done}} task__text">{{todos.text}}</span>
+                  </label>
+              </li>
+
+          </ul>
+
+          <div class="new-task__container">
+              <form>
+                  <input class="new-task__input" type="text" ng-model="todoText" placeholder="Your next task">
+                  <button class="new-task__btn" ng-click="addTodo()">+</button>
+              </form>
+          </div>
+      </main>
+
+     <footer class="page-footer">
+         <div class="page-footer__inner">
+             <h3 class="total-tasks">Total:{{todoList.length}}</h3>
+             <button class="remove-btn" ng-click="removeCompleted()" type="button">
+                 <svg class="remove-btn__icon" width="24px" xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 24 24" height="24px" class="gb_nc"><path d="m6 19c0 1.1 0.9 2 2 2h8c1.1 0 2-0.9 2-2v-12h-12v12zm13-15h-3.5l-1-1h-5l-1 1h-3.5v2h14v-2z"></path><path d="m0 0h24v24h-24z" fill="none"></path></svg>
+                 Clear completed</button>
+         </div>
+     </footer>
+
+    <div class="filters">
+
     </div>
 
     <script src="lib/angular.min.js"></script>

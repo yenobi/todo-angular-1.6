@@ -33,33 +33,54 @@ function listCtrl($scope) {
     consoleLogArray();
   };
 
-  $scope.lateToNew = function() {
-      return $scope.todoList.sort( function(a, b) {
-          consoleLogArray();
-          return b.index- a.index;
-      } );
+  let state = 'new-to-late';
+
+  $scope.indexFilter = function() {
+
+        if (state === 'new-to-late') {
+            state = 'late-to-new';
+            return $scope.todoList.sort( function(a, b) {
+                consoleLogArray();
+                return b.index- a.index;
+            } );
+        } else if (state === 'late-to-new') {
+            state = 'new-to-late';
+
+            return $scope.todoList.sort( function(a, b) {
+                consoleLogArray();
+                return a.index - b.index;
+            } );
+        }
   };
 
-  $scope.newToLate = function() {
-      return $scope.todoList.sort( function(a, b) {
-          consoleLogArray();
-          return a.index - b.index;
-      } );
+  let nameState;
+
+  $scope.nameFilter = function(e) {
+      console.log(e);
+
+      if ( nameState === undefined || nameState === 'z-to-a') {
+          nameState = 'a-to-z';
+
+          return $scope.todoList.sort( function(a, b) {
+              consoleLogArray();
+              return a.text.charAt(0) > b.text.charAt(0);
+          } );
+      } else if (nameState === 'a-to-z') {
+          nameState = 'z-to-a';
+
+          return $scope.todoList.sort( function(a, b) {
+              consoleLogArray();
+              return b.text.charAt(0) > a.text.charAt(0);
+          } );
+      };
+
   };
 
-  $scope.aToZ = function() {
-      return $scope.todoList.sort( function(a, b) {
-          consoleLogArray();
-          return a.text.charAt(0) > b.text.charAt(0);
-      } );
-  };
-
-  $scope.zToA = function() {
-      return $scope.todoList.sort( function(a, b) {
-          consoleLogArray();
-          return b.text.charAt(0) > a.text.charAt(0);
-      } );
-  };
+  // $scope.aToZ = function() {
+  // };
+  //
+  // $scope.zToA = function() {
+  // };
 
   function consoleLogArray() {
       console.log($scope.todoList);

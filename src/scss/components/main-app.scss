@@ -1,0 +1,11 @@
+.main-app {
+    @include paddings;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+@media(min-width: 375px) {
+    .main-app{
+        @include max-container;
+    }
+}

@@ -1,0 +1,20 @@
+.page-header {
+    @include paddings;
+    @include shadow;
+    padding-bottom: 1px;
+    padding-top: 5px;
+    background-color: $blue;
+    color: $white;
+
+    &__header {
+        margin-top: 0px;
+    }
+}
+
+@media(min-width: 375px) {
+    .page-header {
+        &__header {
+            @include max-container;
+        }
+    }
+}

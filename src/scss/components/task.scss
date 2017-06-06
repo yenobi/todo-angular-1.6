@@ -1,0 +1,52 @@
+.task {
+    padding: 5px;
+    background-color: $light-gray;
+    @include shadow;
+    margin-bottom: 15px;
+
+    &__list {
+        margin: 0;
+        margin-top: 40px;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__index {
+        vertical-align: middle;
+    }
+
+    &__text {
+        vertical-align: middle;
+    }
+
+    &__checkbox {
+        display: none;
+
+        &:checked ~ .task__custom-checkbox {
+            border-color: $light-blue;
+            background-color: $light-blue;
+        }
+
+        &:checked ~ .task__text,
+        &:checked ~ .task__index {
+            text-decoration: line-through;
+            color: lighten($black, 40%);
+        }
+    }
+
+    &__custom-checkbox {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border: 2px solid darken($gray, 30%);
+        vertical-align: middle;
+        border-radius: 3px;
+        margin-left: 10px;
+    }
+}
+
+@media(min-width: 375px) {
+    .task {
+        max-width: 333px;
+    }
+}
