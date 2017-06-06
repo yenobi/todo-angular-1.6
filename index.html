@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myToDo">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=deivce-width, initial-scale=1">
+    <title>Simple todo-list with angular 1.5</title>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="ctrl.js"></script>
+    <!-- it's only for one class) -->
+    <style>
+      .done-true {
+        text-decoration: line-through;
+        color: grey;
+      }
+    </style>
+  </head>
+  <body ng-controller="listCtrl">
+    <h2>My first ToDo-list with Angular</h2>
+
+    <h3>Total:{{todoList.length}}</h3>
+    <ul ng-repeat="todos in todoList">
+
+      <li>
+        <input type="checkbox" ng-model="todos.done">
+        <span>{{todoList.indexOf(todos) + 1}}</span>
+        <span class="done-{{todos.done}}">{{todos.text}}</span>
+      </li>
+    </ul>
+
+    <form>
+      <input type="text" ng-model="todoText">
+      <button ng-click="addTodo()">add</button>
+    </form>
+    <button ng-click="removeCompleted()" type="button">remove Completed</button>
+
+    <!-- <button type="button">newest to latest</button> -->
+    <button ng-click="reverseTask()" type="button"> change order</button>
+
+  </body>
+</html>

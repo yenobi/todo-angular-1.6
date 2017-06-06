@@ -1,0 +1,12 @@
+{
+  "name": "todo-abgular-1.6",
+  "version": "1.0.0",
+  "description": "test task for job",
+  "main": "index.html",
+  "repository": "https://github.com/yenobi/todo-angular-1.6.git",
+  "author": "Sergey Koshman <koshman.animys@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.6.4"
+  }
+}
