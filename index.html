@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=deivce-width, initial-scale=1">
     <title>Simple todo-list with angular 1.5</title>
-    <script src="node_modules/angular/angular.min.js"></script>
+    <!-- <script src="node_modules/angular/angular.min.js"></script>
     <script src="app.js"></script>
-    <script src="ctrl.js"></script>
+    <script src="ctrl.js"></script> -->
     <!-- it's only for one class) -->
     <style>
       .done-true {
@@ -23,7 +23,8 @@
 
       <li>
         <input type="checkbox" ng-model="todos.done">
-        <span>{{todoList.indexOf(todos) + 1}}</span>
+        <!-- <span>{{todoList.indexOf(todos) + 1}}</span> -->
+        <span>{{todos.index}}</span>
         <span class="done-{{todos.done}}">{{todos.text}}</span>
       </li>
     </ul>
@@ -34,8 +35,18 @@
     </form>
     <button ng-click="removeCompleted()" type="button">remove Completed</button>
 
-    <!-- <button type="button">newest to latest</button> -->
-    <button ng-click="reverseTask()" type="button"> change order</button>
+    <div>
+        <button ng-click="newToLate()" type="button">newest to latest</button>
+        <button ng-click="lateToNew()" type="button"> latest to newest</button>
+    </div>
 
+    <div>
+        <button ng-click="aToZ()" type="button">A to Z</button>
+        <button ng-click="zToA()" type="button">Z to A</button>
+    </div>
+
+    <script src="lib/angular.min.js"></script>
+    <script src="src/js/app.js"></script>
+    <script src="src/js/ctrl.js"></script>
   </body>
 </html>
